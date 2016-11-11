@@ -104,19 +104,39 @@ $breadcrumbs = $this->breadcrumb(
 </head>
 <body id="pi-<?php echo $module; ?>" class="pi-locale-<?php echo $locale; ?>">
 <header class="pi-header">
+    <div class="pi-header-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <?php if ($module == 'system') { ?>
+                        <h1>
+                            <a href="<?php echo Pi::url($this->url('home')); ?>" title="<?php echo _escape($sitename); ?>">
+                                <?php echo _escape($sitename); ?>
+                            </a>
+                        </h1>
+                    <?php } else { ?>
+                        <h2>
+                            <a href="<?php echo Pi::url($this->url('home')); ?>" title="<?php echo _escape($sitename); ?>">
+                                <?php echo _escape($sitename); ?>
+                            </a>
+                        </h2>
+                    <?php } ?>
+                </div>
+                <div class="col-md-9">
+                    <?php echo $this->widget('system-user-bar'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" title="<?php echo _escape($sitename); ?>" href="<?php echo $this->url('home'); ?>">
-                    <?php echo _escape($sitename); ?>
-                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <?php echo $navigation->menu()->setUlClass('nav navbar-nav pi-navbar-nav'); ?>
-                <?php echo $this->widget('system-user-bar'); ?>
             </div>
         </div>
     </nav>
@@ -133,7 +153,7 @@ $breadcrumbs = $this->breadcrumb(
                                         <span>از آشپزی خود ویدیو تهیه کنید و به اشتراک بگذارید</span>
                                     </div>
                                     <div class="animated slideInLeft">
-                                        <h1><?php echo _escape($sitename); ?></h1>
+                                        <h2><?php echo _escape($sitename); ?></h2>
                                     </div>
                                     <div class="animated slideInRight">
                                         <div class="pi-header-socialindex">
@@ -359,9 +379,32 @@ $breadcrumbs = $this->breadcrumb(
         <div class="container">
             <div class="row">
                 <div class="clearfix">
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <h3>ویدیو ها</h3>
+                        <ul class="list-unstyled">
+                            <li><a title="ویدیو های غذا" href="<?php echo Pi::url($this->url('home')); ?>video/food"><i class="fa fa-angle-left"></i> ویدیو های غذا</a></li>
+                            <li><a title="ویدیو های پیش غذا" href="<?php echo Pi::url($this->url('home')); ?>video/appetizer"><i class="fa fa-angle-left"></i> ویدیو های پیش غذا</a></li>
+                            <li><a title="ویدیو های دسر" href="<?php echo Pi::url($this->url('home')); ?>video/dessert"><i class="fa fa-angle-left"></i> ویدیو های دسر</a></li>
+                            <li><a title="ویدیو های نوشیدنی گرم" href="<?php echo Pi::url($this->url('home')); ?>video/hot-drink"><i class="fa fa-angle-left"></i> ویدیو های نوشیدنی گرم</a></li>
+                            <li><a title="ویدیو های نوشیدنی سرد" href="<?php echo Pi::url($this->url('home')); ?>video/cold-drink"><i class="fa fa-angle-left"></i> ویدیو های نوشیدنی سرد</a></li>
+                            <li><a title="ویدیو های کیک و شیرینی" href="<?php echo Pi::url($this->url('home')); ?>video/cake-and-candy"><i class="fa fa-angle-left"></i> ویدیو های کیک و شیرینی</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-12">
+                        <h3>سایر بخش ها</h3>
+                        <ul class="list-unstyled">
+                            <li><a title="تمام ویدیو ها" href="<?php echo Pi::url($this->url('home')); ?>video"><i class="fa fa-angle-left"></i> تمام ویدیو ها</a></li>
+                            <li><a title="وبلاگ" href="<?php echo Pi::url($this->url('home')); ?>blog"><i class="fa fa-angle-left"></i> وبلاگ</a></li>
+                            <li><a title="درباره ما" href="<?php echo Pi::url($this->url('home')); ?>page/about-us"><i class="fa fa-angle-left"></i> درباره ما</a></li>
+                            <li><a title="تماس با ما" href="<?php echo Pi::url($this->url('home')); ?>contact"><i class="fa fa-angle-left"></i> تماس با ما</a></li>
+                            <li><a title="قوانین و مقررات" href="<?php echo Pi::url($this->url('home')); ?>page/terms-and-condition"><i class="fa fa-angle-left"></i> قوانین و مقررات</a></li>
+                            <li><a title="راهنمای سایت" href="<?php echo Pi::url($this->url('home')); ?>page/guide"><i class="fa fa-angle-left"></i> راهنمای سایت</a></li>
+                            <li><a title="همکاری با ما" href="<?php echo Pi::url($this->url('home')); ?>page/cooperation"><i class="fa fa-angle-left"></i> همکاری با ما</a></li>
+                        </ul>
+                    </div>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <h2>درباره ما</h2>
-                        <p></p>
+                        <p>با اولین سایت ویدئویی آشپزی ، آشپزی را یاد بگیر و یاد بده و هر روز لذت طعم های متفاوت و خوشمزه را به خودت و عزیزانت هدیه کن.</p>
                         <div class="pi-footer-social text-right">
                             <h2>شبکه های اجتماعی</h2>
                             <ul class="list-inline">
@@ -372,28 +415,6 @@ $breadcrumbs = $this->breadcrumb(
                                 <li><a target="_blank" title="" href=""><i class="fa fa-linkedin-square"></i></a></li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-12">
-                        <h3>ویدیو ها</h3>
-                        <ul class="list-unstyled">
-                            <li><a title="ویدیو های غذا" href="<?php echo Pi::url($this->url('home')); ?>video/food"><i class="fa fa-angle-left"></i> ویدیو های غذا</a></li>
-                            <li><a title="ویدیو های پیش غذا" href="<?php echo Pi::url($this->url('home')); ?>video/appetizer"><i class="fa fa-angle-left"></i> ویدیو های پیش غذا</a></li>
-                            <li><a title="ویدیو های دسر" href="<?php echo Pi::url($this->url('home')); ?>video/dessert"><i class="fa fa-angle-left"></i> ویدیو های دسر</a></li>
-                            <li><a title="ویدیو های نوشیدنی گرم" href="<?php echo Pi::url($this->url('home')); ?>video/hot-drink"><i class="fa fa-angle-left"></i> ویدیو های نوشیدنی گرم</a></li>
-                            <li><a title="ویدیو های نوشیدنی سرد" href="<?php echo Pi::url($this->url('home')); ?>cold-drink"><i class="fa fa-angle-left"></i> ویدیو های نوشیدنی سرد</a></li>
-                            <li><a title="ویدیو های کیک و شیرینی" href="<?php echo Pi::url($this->url('home')); ?>cake-and-candy"><i class="fa fa-angle-left"></i> ویدیو های کیک و شیرینی</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-sm-3 col-xs-12">
-                        <h3>سایر بخش ها</h3>
-                        <ul class="list-unstyled">
-                            <li><a title="تمام ویدیو ها" href="<?php echo Pi::url($this->url('home')); ?>video"><i class="fa fa-angle-left"></i> تمام ویدیو ها</a></li>
-                            <li><a title="وبلاگ" href="<?php echo Pi::url($this->url('home')); ?>blog"><i class="fa fa-angle-left"></i> وبلاگ</a></li>
-                            <li><a title="درباره ما" href="<?php echo Pi::url($this->url('home')); ?>"><i class="fa fa-angle-left"></i> درباره ما</a></li>
-                            <li><a title="تماس با ما" href="<?php echo Pi::url($this->url('home')); ?>contact"><i class="fa fa-angle-left"></i> تماس با ما</a></li>
-                            <li><a title="قوانین و مقررات" href="<?php echo Pi::url($this->url('home')); ?>"><i class="fa fa-angle-left"></i> قوانین و مقررات</a></li>
-                            <li><a title="راهنمای سایت" href="<?php echo Pi::url($this->url('home')); ?>"><i class="fa fa-angle-left"></i> راهنمای سایت</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
